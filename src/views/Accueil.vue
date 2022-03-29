@@ -4,7 +4,7 @@
         <h2>Rechercher et critiquer des films</h2>
     </div>
 
-    <h2> Film le plus populaire </h2>
+    <h2> Les 20 films les plus populaires </h2>
         <table>
             <tr v-for="unFilm in populaire" v-bind:key="unFilm.key">
                 <td class="titre1">{{unFilm.title}}</td>
