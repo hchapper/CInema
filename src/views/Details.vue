@@ -67,7 +67,6 @@
 
 <script>
 import axios from 'axios'
-
 export default{
     name: 'Details',
     data: () => ({
@@ -83,7 +82,6 @@ export default{
     methods: {
         async getdetails() {
             const response = await axios.get(this.baseUrl + '/movie/' + this.film.id + '?language=fr&api_key=' + this.api_key);
-
             this.details = await response.data; 
         },
         async getcredits() {
@@ -120,4 +118,3 @@ export default{
 }
   
 </script>
-
