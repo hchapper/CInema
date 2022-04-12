@@ -4,6 +4,5 @@ import VueAxios from 'vue-axios'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import './views/Style.css'
 
 createApp(App).use(router,VueAxios, axios).mount('#app')
