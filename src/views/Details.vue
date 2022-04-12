@@ -55,8 +55,8 @@
 
             <div>
     <h4> Films Recommandés </h4>
-    <div v-for="recommedation in recommedations.results" v-bind:key="recommedation.key">
-        {{recommedation.title}}
+    <div v-for="recommendation in recommendations.results" v-bind:key="recommendation.key">
+        {{recommendation.title}}
     </div>
     </div>
 
@@ -76,7 +76,7 @@ export default{
         details: [],
         credits: [],
         reviews: [],
-        recommedations : [],
+        recommendations : [],
         load: true,
     }),
     methods: {
@@ -92,9 +92,9 @@ export default{
             const response = await axios.get(this.baseUrl + '/movie/' + this.film.id + '/reviews?language=fr&api_key=' + this.api_key);
             this.reviews = await response.data;  
         },
-        async getrecommedations(){
+        async getrecommendations(){
             const response = await axios.get(this.baseUrl + '/movie/' + this.film.id + '/recommendations?api_key=' + this.api_key +'&language=fr' );
-            this.recommedations = await response.data;
+            this.recommendations = await response.data;
             //https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
         }
     },
@@ -105,7 +105,7 @@ export default{
         
         this.getdetails();
         this.getcredits();
-        this.getrecommedations();
+        this.getrecommendations();
         this.load = false;
     },
     computed: {
