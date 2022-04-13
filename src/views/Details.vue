@@ -48,6 +48,20 @@
             
                 <br><br> <br> <br> <br> <br> <br>
 
+             <div v-if="voted" class="back" style="margin: -40px 15px 15px 15px; float: right; text-align: center">
+                <b>Merci !</b>
+            </div>
+           <h3>Quelle note donnez vous au film ?</h3>
+            <div v-if="!voted" class="back" style="margin: -40px 15px 15px 15px; float: right;  text-align: center">
+                <h3>Quelle note donnez vous au film ?</h3>
+                <span v-for="n in 5" v-bind:key="n">
+                    <img  v-if="n > note" class="note" src="public\img\icons\star.png"   style="filter: grayscale(100%);"    v-on:click="setnote(n)">
+                    <img  v-if="n <= note" class="note" src="public\img\icons\star.png"      v-on:click="setnote(n)">                    
+                </span>
+                    <br>
+                <button v-on:click="postreview">Noter</button>
+            </div>
+
             <h2>Casting</h2>
             <table class="cast" v-for='credit in credits.cast' v-bind:key="credit.key">
                 <tr>
