@@ -30,6 +30,23 @@
             <i>Basé sur le vote de {{details.vote_count}} personnes.</i>
                 <br><br>
             <div class="hr"></div>
+                
+                <br> <br> <br> <br> <br> <br>
+                <div v-if="voted" class="back1" style="margin: -50px 15px 15px 15px; float: center; text-align: center">
+                    <b>Merci !</b>
+                </div>
+                <!--"margin: -40px 15px 15px 15px; float: right;  text-align: center"-->
+                <div v-if="!voted" id="notation" class="back1" style="margin: -80px;">
+                    <h3>Quelle note donnez-vous au film ?</h3>
+                    <span v-for="n in 5" v-bind:key="n">
+                        <img  v-if="n > note" class="note" src="star_grey.png"   tyle="filter: grayscale(100%);"    v-on:click="setnote(n)">
+                        <img  v-if="n <= note" class="note" src="star.png"     v-on:click="setnote(n)">                    
+                    </span>
+                    <br>
+                    <button v-on:click="postreview" class="boutNote">Noter</button>
+                </div>
+            
+                <br><br> <br> <br> <br> <br> <br>
 
             <h2>Casting</h2>
             <table class="cast" v-for='credit in credits.cast' v-bind:key="credit.key">
@@ -58,6 +75,7 @@
     <div v-for="recommendation in recommendations.results" v-bind:key="recommendation.key">
         {{recommendation.title}}
     </div>
+   
     </div>
 
         </div>
@@ -66,6 +84,7 @@
 </template>
 
 <script>
+/*supprimer*/ 
 import axios from 'axios'
 export default{
     name: 'Details',
@@ -78,6 +97,10 @@ export default{
         reviews: [],
         recommendations : [],
         load: true,
+        /*à supp*/
+        note: 0,
+        /*à supp*/
+        voted: false,
     }),
     methods: {
         async getdetails() {
@@ -96,6 +119,25 @@ export default{
             const response = await axios.get(this.baseUrl + '/movie/' + this.film.id + '/recommendations?api_key=' + this.api_key +'&language=fr' );
             this.recommendations = await response.data;
             //https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
+        },
+        /*à supp*/
+        setnote(e){
+            this.note = e;
+        },
+        /*à supp*/
+        async postreview(){
+            if (this.note <= 0 || this.note > 5){
+                alert('erreur lors de la saisie de la note');
+            } else {
+                const review = { value: (this.note * 2) };
+                const response = await axios.post(this.baseUrl + '/movie/' + this.film.id + '/rating?api_key=' + this.api_key, review);
+                
+                const dat = await response.data; 
+                console.log(dat.status_message);
+
+                this.voted = true;
+                
+            }
         }
     },
     created() {

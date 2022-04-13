@@ -1,3 +1,5 @@
+
+
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -21,14 +23,15 @@ body {
     }
     .cast{
         display: inline-block;
-        margin: 2px.1px;
+        margin: 2px 1px;
         padding: 10px 10px;
         background-color: #ffffff;
     }
+    
 }
 @media (prefers-color-scheme: dark) {
     body{
-        background-color: #332c2c;
+        background-color: #000000;
         color: #fff;
     }
     .svg{
@@ -48,7 +51,13 @@ body {
     }
     .cast{
         display: inline-block;
-        margin: 2px.1px;
+        margin: 2px 1px;
+        padding: 10px 10px;
+        background-color: #000000;
+    }
+    .cast{
+        display: inline-block;
+        margin: 2px 1px;
         padding: 10px 10px;
         background-color: #000000;
     }
@@ -203,38 +212,30 @@ header {
 }/*
 .cast{
     display: inline-block;
-    margin: 2px.1px;
+    margin: 2px 1px;
     padding: 10px 10px;
-    background-color: #000000;
+    background-color: #ffffff;
 }*/
 .profile{
     height: 45px;
     border-radius: 0px;
 }
-
+/*
 .hr{
     background-color: #51ec91;
     border-radius: 0px;
     height: 20px;
     margin: 0 10px;
-}/*
-.back{
-    background-color: #000000;
-    border-radius: 0px;
-    padding: 20px;
 }*/
 
 .vote{
     height: 5px;
     width: 250px;
 }
-/* Couleurs étoiles(note)
-.vote div{
-    position: relative;
-    top: -54px;
-    background-image: linear-gradient(#ffd318, #febc08);
-    height: 70px;
-}*/
+
+
+
+
 .vote img{
     height: 50px;
     position: relative;
@@ -309,3 +310,33 @@ header {
     height : 300px;
     
   }
+
+  /*Mofidification étoiles de notations*/
+.vote div{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image: linear-gradient(#ffd318, #febc08);
+    height: 0px;
+    width: 0px;
+}
+.boutNote {
+    display: inline-block;
+    background-color: #51ec91;
+    border-radius: 10px;
+    border: 4px double #ffffff;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    padding: 0.5px;
+    width: 80px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px;
+    
+}
+
+

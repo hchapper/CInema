@@ -3,7 +3,7 @@
         <h1>Recherche de films PWA</h1>
         <h2>Rechercher et critiquer des films</h2>
     </div>
-
+    <h2><a href="https://www.ugc.fr">Liens vers UGC</a></h2>
     <h2> Les 20 films les plus populaires </h2>
         <table>
             <tr v-for="unFilm in populaire" v-bind:key="unFilm.key">

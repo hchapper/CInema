@@ -1,0 +1,10 @@
+Le site web est codé en javaScrip grâce au framework vue.js.
+Pour installer le serveur, il faut aller dans le répertoire du dossier de l'application, ouvrir l'invite de commande et faire "npm install" en vérifiant que node.js soit installé sur l'ordinateur.
+Une fois cela fait, vous pouvez démarrer le serveur avec la commande "npm run serve".
+Il faudra ensuite copier l'adresse local affichée sur l'invite de commande et la coller sur un navigateur internet.
+L'accueil du site affiche les 20 films les plus populaires sur le site https://www.themoviedb.org .
+Il renvoie également vers le site de ugc.fr en cliquant sur le lien
+en haut, il y a un bouton "recherche" qui permet de rechercher des films.
+La recherche de films permet de rechercher des films par mots clefs contenus dans le titre du film.
+En cliquant sur le bouton "détails" qui apparait à coté du film en question, on peut voir le résumé du film ainsi que la moyenne des notes données par les utilisateur du site https://www.themoviedb.org .
+Le bouton détail permet également de voir le casting du film ainsi que l'équipe de production. Enfin, en bas de page vous pouvez également voir les films recommandés en se basant sur le film surlequel vous êtes actuellement. 
